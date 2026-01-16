@@ -1,11 +1,14 @@
 package ci553.happyshop.client.customer;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -30,6 +33,13 @@ public class CustomerController {
                 cusModel.closeReceipt();
                 break;
         }
+    }
+
+    @FXML
+    private void handleAction(ActionEvent event) throws SQLException, IOException {
+        Button source = (Button) event.getSource();
+        String action = source.getText();
+        doAction(action);
     }
 
     public void handleBack(ActionEvent event) {

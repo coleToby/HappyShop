@@ -5,14 +5,91 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
 <VBox xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ci553.happyshop.client.customer.CustomerController"
-            prefHeight="400.0" prefWidth="600.0">
-    <Button text="back" onAction="#handleBack"/>
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ci553.happyshop.client.customer.CustomerController"
+      prefHeight="400.0" prefWidth="600.0"
+      spacing="15"
+style=" -fx-background-color: #203354;">
 
-    <Label text = "Search by Product ID/Name"
-    />
+    <Button text="Home" onAction="#handleBack"/>
+
+    <Label text="Search by Product ID/Name"
+           style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill:white">
+        <padding>
+            <Insets top="15" right="0" bottom="10" left="30"/>
+        </padding>
+    </Label>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <padding>
+            <Insets left="30"/>
+        </padding>
+
+        <Label text="ID" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill:white"/>
+        <TextField fx:id="productIdField"
+                   promptText="Product ID"
+                   prefWidth="100"
+                   HBox.hgrow="NEVER"/>
+    </HBox>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <padding>
+            <Insets left="30"/>
+        </padding>
+
+        <Label text="Name" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill:white"/>
+        <TextField fx:id="productNameField"
+                   promptText="Product Name"
+                   prefWidth="100"
+                   HBox.hgrow="NEVER"/>
+    </HBox>
+
+    <HBox spacing="15" alignment="CENTER_LEFT">
+        <padding>
+            <Insets top="20" left="30"/>
+        </padding>
+
+        <Button text="Search"
+                onAction="#handleAction"
+                prefWidth="100"/>
+
+        <Button text="Add to Trolley"
+                onAction="#handleAction"
+                prefWidth="150"/>
+    </HBox>
+
+    <VBox spacing="15"
+          alignment="TOP_CENTER"
+          prefWidth="300"
+          style="-fx-background-color: #203354;">
+
+        <Label text="🛒🛒  Trolley  🛒🛒"
+               style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill:white" />
+
+        <!-- White content area -->
+        <ListView fx:id="trolleyList"
+                  prefHeight="200"
+                  prefWidth="50"
+                  VBox.vgrow="NEVER"
+                  style="-fx-background-color: white;"/>
+
+        <!-- Buttons -->
+        <HBox spacing="15" alignment="CENTER">
+            <Button text="Cancel"
+                    userData="Cancel"
+                    onAction="#handleBack"
+                    prefWidth="90"/>
+
+            <Button text="Check Out"
+                    userData="Check Out"
+                    prefWidth="100"/>
+        </HBox>
+
+    </VBox>
+
 
 </VBox>
+
